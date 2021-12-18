@@ -371,7 +371,7 @@ function scrape_div() {
   document.querySelector(".yellowBg").style.backgroundColor = "yellow";
   setTimeout(()=>{
     document.querySelector(".yellowBg").style.backgroundColor = bg_col;
-    document.querySelector(".yellowBg").classList.remove('yellowBg');
+    //document.querySelector(".yellowBg").classList.remove('yellowBg');
   }, 300);
 
   wait_to_kill();
