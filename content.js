@@ -3,7 +3,8 @@
 
 // Adding class to highlght text
 var css_to_append = document.createElement('style');
-css_to_append.innerHTML = `.yellowBg {  border: 5px solid red !important; }
+css_to_append.innerHTML = `.yellowBg { background-colour : red ; }
+
  .popover__content {
   opacity: 0;
   visibility: hidden;
@@ -346,44 +347,33 @@ function scrape_div() {
 
       if(cond)
       { 
-        //$(this).eq(count).addClass('popover__wrapper yellowBg');
-        //$(this).eq(count).append(div_to_append);
-        //console.log($(this).eq(count));
-
-
+        
        if($(this).css('z-index')> z_index && $(this).css('z-index') != 'auto' || $(this).css('z-index')> z_index ) 
        { 
          //if($(this).width()>0 && $(this).height()>0);
          {z_index= $(this).css('z-index');
          divs = this;
          
-        //console.log($(this).css('z-index'));
-        //console.log($(this));
          }
         
         }
-       /*
-        if(count>=2)
-       {
-        {z_index= $(this).css('z-index');
-        divs = this;
-       console.log($(this).css('z-index'));
-       console.log($(this));
-        }
-       }
-    */
-       
-        
-
+     
      }
     
     //count +=1;
   });
   //console.log(divs);
   //console.log($(divs).css('z-index'));
+
   $(divs).addClass('popover__wrapper yellowBg');
   $(divs).append(div_to_append);
-  
+  var bg_col = document.querySelector(".yellowBg").style.backgroundColor;
+  document.querySelector(".yellowBg").style.backgroundColor = "yellow";
+  setTimeout(()=>{
+    document.querySelector(".yellowBg").style.backgroundColor = bg_col;
+    document.querySelector(".yellowBg").classList.remove('yellowBg');
+  }, 300);
+
   wait_to_kill();
   return;
 
