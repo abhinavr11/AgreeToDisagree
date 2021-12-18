@@ -14,6 +14,22 @@ css_to_append.innerHTML = `.yellowBg {  border: 5px solid red !important; }
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   width: auto;
   transition: all 0.5s ease-in;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: opacity 0.5s;
+  background: #ffffff;
+  border: 3px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4.63588px;
 }
 
 
@@ -25,12 +41,225 @@ css_to_append.innerHTML = `.yellowBg {  border: 5px solid red !important; }
   transition: all 0.5s ease-in;
   top: 0px;
  
-}`; 
+}
+
+.title {
+  /* position: absolute; */
+  left: 129.29px;
+  top: 22.97px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 29.6696px;
+  line-height: 35px;
+  text-align: center;
+
+  color: #141414;
+}
+
+.slogan {
+  /* position: absolute; */
+  width: auto;
+  left: 129.29px;
+  top: 63.72px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 13px;
+  text-align: center;
+
+  color: #5b1ede;
+  margin-bottom: -25px;
+}
+
+.grade {
+  /* position: absolute; */
+ 
+  left: 202.43px;
+  top: 95.44px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 133.513px;
+  line-height: 156px;
+  text-align: center;
+
+  color: #5b1ede;
+}
+
+.grade-heading {
+  /* position: absolute; */
+
+  left: 181.93px;
+  top: 237.09px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22.2522px;
+  line-height: 26px;
+
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+.grading {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* position: absolute; */
+ 
+  left: 32.24px;
+  top: 285.84px;
+}
+.block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.letter {
+
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.6892px;
+  line-height: 20px;
+
+  color: #5b1ede;
+  margin-right: 5px;
+}
+
+.grade-meaning {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  /* font-size: 11.1261px; */
+  /* line-height: 13px; */
+  /* identical to box height */
+
+  color: #000000;
+}
+
+.grading-sys {
+  /* position: absolute; */
+
+  left: 211.16px;
+  top: 316.28px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 13px;
+  /* identical to box height */
+
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+.algorithm {
+  /* position: absolute; */
+ 
+  left: 112.19px;
+  top: 355.81px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 13px;
+  /* identical to box height */
+
+  color: #4a4a4a;
+  margin-bottom: -20px;
+}
+
+.points {
+  /* position: absolute; */
+
+  left: 80px;
+  top: 370px;
+  text-align: left;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: medium;
+  font-size: 16.6892px;
+  /* line-height: 20px; */
+  /* text-decoration-line: underline; */
+
+  color: #141414;
+}
+
+.number {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16.6892px;
+  line-height: 20px;
+  text-decoration-line: underline;
+
+  color: #5b1ede;
+}
+
+.name {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16.6892px;
+  line-height: 20px;
+  /* text-decoration-line: underline; */
+
+  color: #141414;
+}
+`; 
 // transform: translate(100px, -500px);
 var div_to_append = document.createElement('div');
-div_to_append.innerHTML = `<div class="popover__content">
-<p class="popover__message">Joseph Francis "Joey" Tribbiani, Jr.</p>
-<img alt="Joseph Francis Joey Tribbiani, Jr." src="https://media.giphy.com/media/11SIBu3s72Co8w/giphy.gif">
+div_to_append.innerHTML = `<div id="circle" class="popover__content">
+<div class="title">Agree to Disagree</div>
+<div class="slogan">Privacy Report Card of every website</div>
+<div class="grade">B</div>
+<div class="grade-heading">Overall Grade</div>
+<div class="grading">
+   <div class="block">
+      <div class="letter">A</div>
+      <div class="grade-meaning">Best</div>
+      
+    </div>
+    <div class="block"><div class="letter">B</div>
+    <div class="grade-meaning">Good</div></div>
+    <div class="block"><div class="letter">C</div>
+    <div class="grade-meaning">Neutral</div></div>
+    <div class="block"><div class="letter">D</div>
+    <div class="grade-meaning">Bad</div></div>
+    <div class="block"><div class="letter">E</div>
+    <div class="grade-meaning">Block it</div></div>
+
+  </div>
+  <div class="grading-sys">Grading System</div>
+  <div class="algorithm">Our Algorithm has rated different points of this policy as </div>
+  <div class="points">
+    <ul>
+      <li>
+        <span class="number">5</span> points can be considered as <span class="name">GOOD</span>
+      </li>
+      <li>
+        <span class="number">3</span> points are almost <span class="name">NEUTRAL</span>
+      </li>
+      <li>
+        There are <span class="number">1</span> <span class="name">BAD</span> points
+      </li>
+      <li>
+        There are <span class="number">0</span> points that can be a <span class="name">BLOCKER</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
 </div>`;
 
 

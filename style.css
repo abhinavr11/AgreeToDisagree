@@ -1,9 +1,9 @@
-.container {
+.popover__wrapper {
   /* position: absolute; */
   top: 500px;
 }
 
-.container .popover {
+.popover__wrapper .popover {
   visibility: hidden;
   opacity: 0;
 
@@ -28,7 +28,7 @@
   border-radius: 4.63588px;
 }
 
-.container:hover .popover {
+.popover__wrapper:hover .popover {
   visibility: visible;
   opacity: 1;
 }
