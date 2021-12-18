@@ -53,7 +53,9 @@ var wait = 0;
 let intervalId = window.setInterval(function(){
   if(wait == 1)
   {
-    scrape_div();
+    if(!sign_up_case())
+    {scrape_div();}
+   
    
     window.clearInterval(intervalId);
   }
@@ -61,7 +63,9 @@ let intervalId = window.setInterval(function(){
   }, 1000);
 
 
-
+//#####################################################
+//################Main Function########################
+//####################################################
 
 
 cookie_words = ['cookie' , 'use', 'agree', 'consent' , 'permission' , 'understand' , 'automatically','privacy','policy'] ;
@@ -70,7 +74,6 @@ relevant_link_words = [ 'cookie', 'terms' , 'privacy' ,'policy', "terms of servi
 var all_links = [] ;
 var links = [] ;
 
-var div_count =[];
 
 $('a').each(function() {
       all_links.push(this.href);
@@ -87,6 +90,11 @@ for (var i=0; i < all_links.length ; i++)
 }
 
 
+
+
+//###########################################################
+//##########################################################
+
 function scrape_div() {
   var count = 0;
   var z_index = 0;
@@ -98,7 +106,7 @@ function scrape_div() {
       { 
        if(this.innerText.includes(cookie_words[i]) )
         { 
-          console.log(this.innerText);
+          //console.log(this.innerText);
           //console.log(this);
           cond=true;
           count +=1;
@@ -119,8 +127,9 @@ function scrape_div() {
          //if($(this).width()>0 && $(this).height()>0);
          {z_index= $(this).css('z-index');
          divs = this;
-        console.log($(this).css('z-index'));
-        console.log($(this));
+         
+        //console.log($(this).css('z-index'));
+        //console.log($(this));
          }
         
         }
@@ -145,8 +154,67 @@ function scrape_div() {
   //console.log($(divs).css('z-index'));
   $(divs).addClass('popover__wrapper yellowBg');
   $(divs).append(div_to_append);
-
+  
+  wait_to_kill();
+  return;
 
 }
 
 
+function sign_up_case()
+{
+  //###########Confirming Case##############
+  sign_up_words = ['Sign','sign','SIGN','UP','up','Up']
+  title_words = $('title').text().split(" ");
+  sign_up_case_cond = false;
+  for(var i = 0; i < title_words.length ; i++)
+  {
+    if(sign_up_words.includes(title_words[i]))
+    {
+      sign_up_case_cond = true;
+      break;
+    }
+  }
+
+  console.log($('button').innerText);
+  //##########################################  
+
+
+
+    if(sign_up_case_cond)
+    {
+      console.log("sign up case confirmed");
+    
+    
+    
+    
+      wait_to_kill();
+     return true;
+    }
+  
+  
+  
+    else 
+    {return false;}
+  
+}
+
+
+function wait_to_kill()
+{
+  console.log('inside wait to kill');
+  document.addEventListener("click", kill);
+  return;
+}
+
+function kill()
+{
+  console.log('inside kill');
+
+  $('div').each(function(){
+
+    if(this.className.includes("popover__wrapper yellowBg"))
+    {$(this).removeClass("popover__wrapper yellowBg");}
+    return;
+  });
+}
