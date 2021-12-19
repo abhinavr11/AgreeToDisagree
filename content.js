@@ -270,21 +270,9 @@ div_to_append.innerHTML = `<div id="circle" class="popover__content">
 
 </div>`;
 
-<<<<<<< HEAD
 
 $('head').append(css_to_append);
 
-=======
-//border: 2px solid powderblue;
-
-var font_to_append = `<link
-href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-rel="stylesheet"
-/>`;
-
-$("head").append(css_to_append);
-$("head").append(font_to_append);
->>>>>>> 948065c6f7aa5870ce67fc91f92ba1e65c9670a4
 
 var wait = 0;
 let intervalId = window.setInterval(function () {
@@ -339,12 +327,9 @@ for (var i = 0; i < all_links.length; i++) {
   }
 }
 
-<<<<<<< HEAD
 chrome.runtime.sendMessage(links, function(response) {console.log('sent message from content')});
 
 
-=======
->>>>>>> 948065c6f7aa5870ce67fc91f92ba1e65c9670a4
 //###########################################################
 //##########################################################
 
