@@ -1,8 +1,7 @@
-
 // Working algo - find input element and look for targeted words
 
 // Adding class to highlght text
-var css_to_append = document.createElement('style');
+var css_to_append = document.createElement("style");
 css_to_append.innerHTML = `.yellowBg { background-colour : red ; }
 
  .popover__content {
@@ -71,9 +70,10 @@ css_to_append.innerHTML = `.yellowBg { background-colour : red ; }
   font-size: 14px;
   line-height: 13px;
   text-align: center;
+  margin-top: 5px;
 
   color: #5b1ede;
-  margin-bottom: -25px;
+  // margin-bottom: -25px;
 }
 
 .grade {
@@ -110,6 +110,7 @@ css_to_append.innerHTML = `.yellowBg { background-colour : red ; }
 
 .grading {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   /* position: absolute; */
@@ -119,7 +120,8 @@ css_to_append.innerHTML = `.yellowBg { background-colour : red ; }
 }
 .block {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  width: 80px;
 }
 
 .letter {
@@ -160,7 +162,8 @@ css_to_append.innerHTML = `.yellowBg { background-colour : red ; }
   /* identical to box height */
 
   color: #4a4a4a;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  margin-top: 10px;
 }
 
 .algorithm {
@@ -177,7 +180,7 @@ css_to_append.innerHTML = `.yellowBg { background-colour : red ; }
   /* identical to box height */
 
   color: #4a4a4a;
-  margin-bottom: -20px;
+  margin-bottom: 10px;
 }
 
 .points {
@@ -190,7 +193,7 @@ css_to_append.innerHTML = `.yellowBg { background-colour : red ; }
   font-style: normal;
   font-weight: medium;
   font-size: 16.6892px;
-  /* line-height: 20px; */
+  line-height: 20px; 
   /* text-decoration-line: underline; */
 
   color: #141414;
@@ -217,9 +220,13 @@ css_to_append.innerHTML = `.yellowBg { background-colour : red ; }
 
   color: #141414;
 }
-`; 
+
+li{
+  margin-bottom: 5px;
+}
+`;
 // transform: translate(100px, -500px);
-var div_to_append = document.createElement('div');
+var div_to_append = document.createElement("div");
 div_to_append.innerHTML = `<div id="circle" class="popover__content">
 <div class="title">Agree to Disagree</div>
 <div class="slogan">Privacy Report Card of every website</div>
@@ -263,64 +270,68 @@ div_to_append.innerHTML = `<div id="circle" class="popover__content">
 
 </div>`;
 
-
-
-
 //border: 2px solid powderblue;
 
+var font_to_append = `<link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+rel="stylesheet"
+/>`;
 
-
-
-
-
-$('head').append(css_to_append);
-
-
-
-
+$("head").append(css_to_append);
+$("head").append(font_to_append);
 
 var wait = 0;
-let intervalId = window.setInterval(function(){
-  if(wait == 1)
-  {
-    if(!sign_up_case())
-    {scrape_div();}
-   
-   
+let intervalId = window.setInterval(function () {
+  if (wait == 1) {
+    if (!sign_up_case()) {
+      scrape_div();
+    }
+
     window.clearInterval(intervalId);
   }
-    wait +=1;
-  }, 1000);
-
+  wait += 1;
+}, 1000);
 
 //#####################################################
 //################Main Function########################
 //####################################################
 
+cookie_words = [
+  "cookie",
+  "use",
+  "agree",
+  "consent",
+  "permission",
+  "understand",
+  "automatically",
+  "privacy",
+  "policy",
+];
+relevant_link_words = [
+  "cookie",
+  "terms",
+  "privacy",
+  "policy",
+  "terms of service",
+  "terms and conditions",
+  "rights",
+  "legal",
+];
+var all_links = [];
+var links = [];
 
-cookie_words = ['cookie' , 'use', 'agree', 'consent' , 'permission' , 'understand' , 'automatically','privacy','policy'] ;
-relevant_link_words = [ 'cookie', 'terms' , 'privacy' ,'policy', "terms of service" , "terms and conditions" , 
-"rights" , "legal"] ; 
-var all_links = [] ;
-var links = [] ;
+$("a").each(function () {
+  all_links.push(this.href);
+});
 
-
-$('a').each(function() {
-      all_links.push(this.href);
-    });
-
-for (var i=0; i < all_links.length ; i++)
-{
-    for (var j = 0 ; j< relevant_link_words.length ; j++)
-    {   if(all_links[i].includes(relevant_link_words[j]))
-         {links.push(all_links[i]);
-            break;
-        }
+for (var i = 0; i < all_links.length; i++) {
+  for (var j = 0; j < relevant_link_words.length; j++) {
+    if (all_links[i].includes(relevant_link_words[j])) {
+      links.push(all_links[i]);
+      break;
     }
+  }
 }
-
-
-
 
 //###########################################################
 //##########################################################
@@ -328,112 +339,89 @@ for (var i=0; i < all_links.length ; i++)
 function scrape_div() {
   var count = 0;
   var z_index = 0;
-  var divs ;
-  $('div').each(function(){
-      cond = false; 
-       
-      for(var i = 0 ; i < cookie_words.length ;i++)
-      { 
-       if(this.innerText.includes(cookie_words[i]) )
-        { 
-          //console.log(this.innerText);
-          //console.log(this);
-          cond=true;
-          count +=1;
-          break;
-        }
-      
-      }
+  var divs;
+  $("div").each(function () {
+    cond = false;
 
-      if(cond)
-      { 
-        
-       if($(this).css('z-index')> z_index && $(this).css('z-index') != 'auto' || $(this).css('z-index')> z_index ) 
-       { 
-         //if($(this).width()>0 && $(this).height()>0);
-         {z_index= $(this).css('z-index');
-         divs = this;
-         
-         }
-        
+    for (var i = 0; i < cookie_words.length; i++) {
+      if (this.innerText.includes(cookie_words[i])) {
+        //console.log(this.innerText);
+        //console.log(this);
+        cond = true;
+        count += 1;
+        break;
+      }
+    }
+
+    if (cond) {
+      if (
+        ($(this).css("z-index") > z_index &&
+          $(this).css("z-index") != "auto") ||
+        $(this).css("z-index") > z_index
+      ) {
+        //if($(this).width()>0 && $(this).height()>0);
+        {
+          z_index = $(this).css("z-index");
+          divs = this;
         }
-     
-     }
-    
+      }
+    }
+
     //count +=1;
   });
   //console.log(divs);
   //console.log($(divs).css('z-index'));
 
-  $(divs).addClass('popover__wrapper yellowBg');
+  $(divs).addClass("popover__wrapper yellowBg");
   $(divs).append(div_to_append);
   var bg_col = document.querySelector(".yellowBg").style.backgroundColor;
   document.querySelector(".yellowBg").style.backgroundColor = "yellow";
-  setTimeout(()=>{
+  setTimeout(() => {
     document.querySelector(".yellowBg").style.backgroundColor = bg_col;
-    
   }, 300);
 
   wait_to_kill();
   return;
-
 }
 
-
-function sign_up_case()
-{
+function sign_up_case() {
   //###########Confirming Case##############
-  sign_up_words = ['Sign','sign','SIGN','UP','up','Up']
-  title_words = $('title').text().split(" ");
+  sign_up_words = ["Sign", "sign", "SIGN", "UP", "up", "Up"];
+  title_words = $("title").text().split(" ");
   sign_up_case_cond = false;
-  for(var i = 0; i < title_words.length ; i++)
-  {
-    if(sign_up_words.includes(title_words[i]))
-    {
+  for (var i = 0; i < title_words.length; i++) {
+    if (sign_up_words.includes(title_words[i])) {
       sign_up_case_cond = true;
       break;
     }
   }
 
-  console.log($('button').innerText);
-  //##########################################  
+  console.log($("button").innerText);
+  //##########################################
 
+  if (sign_up_case_cond) {
+    console.log("sign up case confirmed");
 
-
-    if(sign_up_case_cond)
-    {
-      console.log("sign up case confirmed");
-    
-    
-    
-    
-      wait_to_kill();
-     return true;
-    }
-  
-  
-  
-    else 
-    {return false;}
-  
+    wait_to_kill();
+    return true;
+  } else {
+    return false;
+  }
 }
 
-
-function wait_to_kill()
-{
-  console.log('inside wait to kill');
+function wait_to_kill() {
+  console.log("inside wait to kill");
   document.addEventListener("click", kill);
   return;
 }
 
-function kill()
-{
-  console.log('inside kill');
+function kill() {
+  console.log("inside kill");
 
-  $('div').each(function(){
-
-    if(this.className.includes("popover__wrapper yellowBg"))
-    {$(this).removeClass("popover__wrapper yellowBg");}
+  $("div").each(function () {
+    if (this.className.includes("popover__wrapper yellowBg")) {
+      $(this).removeClass("popover__wrapper yellowBg");
+    }
     return;
   });
 }
