@@ -1,95 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <title>Popup</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <link href="style.css" rel="stylesheet" />
+    <title>Document</title>
   </head>
   <body>
-    <div class="space"></div>
-    <div class="popover__wrapper">
-      <h1>Hover over me</h1>
-      <div id="circle" class="popover">
-        <div class="title">Agree to Disagree</div>
-        <div class="slogan">Privacy Report Card of every website</div>
-        <div class="grade">B</div>
-        <div class="grade-heading">Overall Grade</div>
-        <div class="grading">
-           <div class="block">
-              <div class="letter">A</div>
-              <div class="grade-meaning">Best</div>
-              
-            </div>
-            <div class="block"><div class="letter">B</div>
-            <div class="grade-meaning">Good</div></div>
-            <div class="block"><div class="letter">C</div>
-            <div class="grade-meaning">Neutral</div></div>
-            <div class="block"><div class="letter">D</div>
-            <div class="grade-meaning">Bad</div></div>
-            <div class="block"><div class="letter">E</div>
-            <div class="grade-meaning">Block it</div></div>
-
-          </div>
-          <div class="grading-sys">Grading System</div>
-          <div class="algorithm">Our Algorithm has rated different points of this policy as </div>
-          <div class="points">
-            <ul>
-              <li>
-                <span class="number">5</span> points can be considered as <span class="name">GOOD</span>
-              </li>
-              <li>
-                <span class="number">3</span> points are almost <span class="name">NEUTRAL</span>
-              </li>
-              <li>
-                There are <span class="number">1</span> <span class="name">BAD</span> points
-              </li>
-              <li>
-                There are <span class="number">0</span> points that can be a <span class="name">BLOCKER</span>
-              </li>
-            </ul>
-          </div>
+    <div class="extension-window">
+      <span class="v6_3">Agree to Disagree</span
+      ><span class="v6_4">Privacy Report Card of every website</span>
+      <div class="v6_5">
+        <div class="v6_6">
+          <span class="v6_7">Overall Grade</span><span class="v6_8">B</span>
         </div>
-
-
-
-
       </div>
-
-
-
-
-
-
-
-      
-
-
+      <div class="v6_77">
+        <span class="v6_67">Category</span><span class="v6_69">Good</span
+        ><span class="v6_73">9</span><span class="v6_74">12</span
+        ><span class="v6_75">5</span><span class="v6_76">2</span
+        ><span class="v6_70">Neutral</span><span class="v6_71">Bad</span
+        ><span class="v6_72">Blocker</span><span class="v6_68">Score</span>
+      </div>
+      <span class="v6_78"
+        >Summary of the Privacy Policy an Terms & Conditions </span
+      ><span class="v6_79">
+        <ul>
+          <li>
+            user account information that you upload on our Sites, such as your
+            picture, name, home address, email address and phone number;
+          </li>
+          <li>
+            loyalty program account information for the third party loyalty
+            programs you register with our Sites, including your program account
+            numbers, passwords and balances, and details of buy, sell, trade and
+            redemption transactions involving those loyalty programs;
+          </li>
+          <li>
+            information about any other services booked or purchases made
+            through our Sites;
+          </li>
+          <li>
+            information contained in any email messages, questions, comments,
+            complaints or requests you send us;
+          </li>
+        </ul>
+      </span>
+      <div class="v6_89">
+        <a href=""
+          ><div class="v6_87"></div>
+          <span class="v6_88">Read More</span>
+        </a>
+      </div>
     </div>
-
-
-
-
-
-
   </body>
-  <script>
-    let circle = document.getElementById("circle");
-    const onMouseMove = (e) => {
-      //   console.log(e);
-      //   console.log(circle.style.height);
-
-      circle.style.left = e.pageX + "px";
-      circle.style.top = e.pageY - circle.clientHeight + "px";
-    };
-    document.addEventListener("mousemove", onMouseMove);
-  </script>
 </html>
