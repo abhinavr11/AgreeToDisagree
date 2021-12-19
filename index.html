@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -81,15 +82,6 @@
 
 
   </body>
-  <script>
-    let circle = document.getElementById("circle");
-    const onMouseMove = (e) => {
-      //   console.log(e);
-      //   console.log(circle.style.height);
-
-      circle.style.left = e.pageX + "px";
-      circle.style.top = e.pageY - circle.clientHeight + "px";
-    };
-    document.addEventListener("mousemove", onMouseMove);
-  </script>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="index.js"></script>
 </html>

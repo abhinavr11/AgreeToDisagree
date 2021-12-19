@@ -264,19 +264,7 @@ div_to_append.innerHTML = `<div id="circle" class="popover__content">
 </div>`;
 
 
-
-
-//border: 2px solid powderblue;
-
-
-
-
-
-
 $('head').append(css_to_append);
-
-
-
 
 
 var wait = 0;
@@ -319,7 +307,7 @@ for (var i=0; i < all_links.length ; i++)
     }
 }
 
-
+chrome.runtime.sendMessage(links, function(response) {console.log('sent message from content')});
 
 
 //###########################################################

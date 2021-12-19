@@ -15,11 +15,13 @@
       "scripts": ["jquery-3.3.1.min.js","background.js"],
       "persistent": true
     },
-    "permissions": ["https://*/*","http://*/*","tabs"],
-
+    "permissions": ["https://*/*","http://*/*","tabs","scripting","activeTab"],
+    "content_security_policy": "script-src 'self' 'sha256-3LMowJuy6NvNl1OmV60e7R4bdyLwEdcLasjxdw1CeCk= ' 'sha256-9p1UoWltVkcoOdP6A5As9a1V3EsBh35oHR8ZocW0WeU=' 'sha256-4j7JuzBSPQfAJ5b/dRcDJluzAt6C6/7oU006ScDAxII=' ",
     "browser_action": {
       "default_popup": "index.html",
       "default_title": "Developed at IIT B"
+      
+
     }
     
   } 
