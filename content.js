@@ -393,15 +393,30 @@ function sign_up_case() {
     }
   }
 
-  console.log($("button").innerText);
+  
   //##########################################
 
   if (sign_up_case_cond) {
     console.log("sign up case confirmed");
+    var sign_up_para_words = ['sign up','sign-up','agree','terms and conditions','learn more','data','by clicking'];
+    var flag = false;
+    
+    var divs = document.getElementsByTagName("div");
+    //console.log(divs[0]);
+
+  
+    
+  /*
+  var bg_col = $(this).style.backgroundColor
+  
+  */
+
 
     wait_to_kill();
     return true;
-  } else {
+  }
+   
+  else {
     return false;
   }
 }
